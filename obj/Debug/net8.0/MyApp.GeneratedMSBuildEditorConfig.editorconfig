@@ -13,24 +13,24 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MyApp
-build_property.ProjectDir = /Users/maxim/Documents/Avalonia/MyApp/
+build_property.ProjectDir = C:\Users\Maxim\Documents\Programming\Orders-app\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[/Users/maxim/Documents/Avalonia/MyApp/App.axaml]
+[C:/Users/Maxim/Documents/Programming/Orders-app/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/maxim/Documents/Avalonia/MyApp/List.axaml]
+[C:/Users/Maxim/Documents/Programming/Orders-app/List.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/maxim/Documents/Avalonia/MyApp/MainWindow.axaml]
+[C:/Users/Maxim/Documents/Programming/Orders-app/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/maxim/Documents/Avalonia/MyApp/MyApp.axaml]
+[C:/Users/Maxim/Documents/Programming/Orders-app/MyApp.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/maxim/Documents/Avalonia/MyApp/OrderPreview.axaml]
+[C:/Users/Maxim/Documents/Programming/Orders-app/OrderPreview.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/maxim/Documents/Avalonia/MyApp/Orders.axaml]
+[C:/Users/Maxim/Documents/Programming/Orders-app/Orders.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

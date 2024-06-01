@@ -10,9 +10,10 @@ namespace MyApp;
 
 public partial class Orders : Window
 {
+    private string _Login;
     public Orders(string user)
     {
-        string Login = user;
+        _Login = user;
         InitializeComponent();
         if(orders == null){
             Orders_text.Text = "Error: orders not found";
@@ -20,7 +21,7 @@ public partial class Orders : Window
             LoadOrders();
         }
     }
-    private void LoadOrders(){
+    public void LoadOrders(){
         string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max;";
         string selectQuery = "SELECT eqModel, EqType FROM Orders";
 
@@ -42,8 +43,9 @@ public partial class Orders : Window
         }
     }
 
-    private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    public void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
+       
         if (sender == null)
         {
             Console.WriteLine("Error: sender is null in ListBox_SelectionChanged.");
@@ -70,7 +72,7 @@ public partial class Orders : Window
         }
     }
 
-    private void LoadOrderDetailsFromDatabase(string eqType, string eqModel)
+    public void LoadOrderDetailsFromDatabase(string eqType, string eqModel)
     {
         string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max;";
         string selectQuery = @"SELECT o.ProblemDesc, o.StartDate, o.Completion_Date, u.FIO 
@@ -100,9 +102,10 @@ public partial class Orders : Window
 
                             if (eqType != null && eqModel != null && problemDesc != null && userName != null && startDate != null && completionDate != null)
                             {
-                                OrderPreview infoWindow = new OrderPreview(eqType, eqModel, problemDesc, userName, startDate, completionDate);
+                                OrderPreview infoWindow = new OrderPreview(eqType, eqModel, problemDesc, userName, startDate, completionDate, _Login);
                                 infoWindow.SizeToContent = SizeToContent.WidthAndHeight;
                                 infoWindow.ShowDialog(this);
+                     
                             }
                             else
                             {
