@@ -1,0 +1,16 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="150"
+        x:Class="MyApp.OrderPreview"
+        Title="OrderPreview">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="25">
+          <TextBlock Name="Info" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="10"></TextBlock>
+          <TextBlock Name="Info_2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="10"></TextBlock>
+          <TextBlock Name="Info_3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="10"></TextBlock>
+          <TextBlock Name="Info_4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="10"></TextBlock>
+          <TextBlock Name="Info_5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="10"></TextBlock>
+          <TextBlock Name="Info_6" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="10"></TextBlock>
+        </StackPanel> 
+</Window>

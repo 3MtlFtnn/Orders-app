@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:notifications="clr-namespace:Avalonia.Controls.Notifications;assembly=Avalonia.Controls"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MyApp.MyApp"
+        Title="Sign up"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        ExtendClientAreaToDecorationsHint="True">   
+        <Panel>
+           <ExperimentalAcrylicBorder IsHitTestVisible="False">
+               <ExperimentalAcrylicBorder.Material>
+                   <ExperimentalAcrylicMaterial
+                       BackgroundSource="Digger"
+                       TintColor="Black"
+                       TintOpacity="1"
+                       MaterialOpacity="0.55" />
+               </ExperimentalAcrylicBorder.Material>
+           </ExperimentalAcrylicBorder>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" >
+            <Button Name="Back" Content="Back" VerticalAlignment="Center" Margin="15,40,0,0" Background="WhiteSmoke" Click="back" ></Button>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock  Margin="0 5" >Name:</TextBlock>
+        <TextBox Name="Name" Watermark="Enter your name"/>
+        <TextBlock  Margin="0 5" >FIO:</TextBlock>
+        <TextBox Name="FIO" Watermark="Enter your name"/>
+        <TextBlock Margin="0 5" >Password:</TextBlock>
+        <TextBox PasswordChar="*" Name="Password_1" Watermark="Enter your password"/>
+        <TextBlock Margin="0 5" >Repeat password:</TextBlock>
+        <TextBox PasswordChar="*" Name="Password_2" Watermark="Enter your password again"/>
+        <TextBlock Margin="0 5">Number</TextBlock>
+        <TextBox Name="Number"  Watermark="Enter your phone"/>
+        <TextBlock Margin="0 5">Job</TextBlock>
+        <TextBox Name="Job"  Watermark="Enter your job"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+          <Button Name="signUpButton" Content="Done" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center" Click="CreateProfilerButton_Click"/>
+        </StackPanel>      
+    </StackPanel>
+       </Panel> 
+</Window>

@@ -1,0 +1,22 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MyApp.MainWindow"
+        Title="MyApp">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Margin="0 5" >Name:</TextBlock>
+        <TextBox Name="Login_textbox" Watermark="Enter your name"/>
+        <TextBlock Margin="0 5" >Password:</TextBlock>
+        <TextBox Name="Password_textbox" PasswordChar="*" Watermark="Enter your password"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="loginButton" Content="Login" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center" Click="Login_click" />
+            <Button Name="signInButton" Content="Sign up" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center" Click="myButton_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" >
+            <Button Name="Test" Content="Test connection" HorizontalAlignment="Center" Margin="10" Foreground="Black" VerticalAlignment="Center" Click="CheckConnection_click" />
+            <TextBlock Name="statusLabel"  VerticalAlignment="Center" Margin="15,40,0,0"></TextBlock>
+        </StackPanel>
+    </StackPanel>
+</Window>
