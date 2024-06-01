@@ -42,6 +42,10 @@ public partial class Orders : Window
             Console.WriteLine("Error: "+ex.Message);
         }
     }
+    public void Updateclick(object sender, RoutedEventArgs e){
+        orders.Items.Clear();
+        LoadOrders();
+    }
 
     public void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {

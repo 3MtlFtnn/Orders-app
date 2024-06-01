@@ -16,6 +16,7 @@
         </StackPanel>
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" >
             <Button Name="Back" Content="Back" VerticalAlignment="Center" Margin="15,40,0,0" Background="BlanchedAlmond" Click="back" ></Button>
+            <Button Name="Update" Content="Update" Click="Updateclick" Margin="15,40,0,0"></Button>
         </StackPanel>
         </Grid> 
 </Window>

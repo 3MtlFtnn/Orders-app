@@ -52,12 +52,10 @@ public partial class OrderPreview : Window
                     command.Parameters.AddWithValue("@EqModel", _eqModel);
 
                     connection.Open();
-
                     int affectedRows = command.ExecuteNonQuery();
+                    
+                    //Добавить предупреждение о удалдении
                     this.Close();
-                    Window newWindow = new Orders(_login);
-                    newWindow.Show();
-
                 }
             }
         }
