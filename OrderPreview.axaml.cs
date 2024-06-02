@@ -18,10 +18,9 @@ public partial class OrderPreview : Window
 {
     private string _eqModel;
     private string _selectedOrder;
-    private string _login;
     public OrderPreview(string selectedOrder, string eqModel, string problem, string userName, string startDate, string completionData, string login)
     {
-        _login = login;
+
         _eqModel = eqModel;
         _selectedOrder = selectedOrder;
         InitializeComponent();

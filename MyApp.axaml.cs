@@ -39,7 +39,7 @@ public partial class MyApp : Window
     }
     private void CreateProfilerButton_Click(object sender, RoutedEventArgs e)
     {
-        string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max;";
+        string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max";
 
         string fio = FIO.Text;
         string phone = Number.Text;

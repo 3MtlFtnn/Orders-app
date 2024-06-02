@@ -180,8 +180,8 @@ public partial class Orders : Window
     }
 
     public void createOrderButton(object sender, RoutedEventArgs e){
-       // Window newWindow = new createOrderWindow();
-        //newWindow.Show();
+        Window newWindow = new CreateOrder();
+        newWindow.Show();
     }
     private void back(object sender, RoutedEventArgs e){
         var main_win = new MainWindow();
