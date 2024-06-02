@@ -4,6 +4,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
+using MsBox.Avalonia;
 using MySql.Data.MySqlClient;
 
 namespace MyApp;
@@ -21,9 +22,54 @@ public partial class Orders : Window
             LoadOrders();
         }
     }
+
+    public async void Search_func(object sender, RoutedEventArgs e)
+    {
+        string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max;";
+        string selectQuery = "SELECT o.EqType, o.EqModel, o.ProblemDesc, o.StartDate, o.Completion_Date, u.FIO FROM Orders o JOIN Users u ON o.Client_ID = u.User_ID WHERE o.Request_ID = @Request_ID";
+
+        int requestId = int.Parse(Search_text.Text); 
+
+        try
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand command = new MySqlCommand(selectQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@Request_ID", requestId);
+
+                    connection.Open();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string eqType = reader.GetString("EqType");
+                            string eqModel = reader.GetString("EqModel");
+                            string problemDesc = reader.GetString("ProblemDesc");
+                            string startDate = reader.GetDateTime("StartDate").ToString("yyyy-MM-dd");
+                            string completionDate = reader.GetDateTime("Completion_Date").ToString("yyyy-MM-dd");
+                            string userName = reader.GetString("FIO");
+                            Window windows_preview = new OrderPreview(eqType,  eqModel,  problemDesc, userName, startDate,  completionDate, _Login);
+                            windows_preview.Show();                        
+                        }
+                        else
+                        {
+                            var box = MessageBoxManager.GetMessageBoxStandard("Caption", "Нет совпадений");
+                            await box.ShowAsync();
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
     public void LoadOrders(){
         string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max;";
-        string selectQuery = "SELECT eqModel, EqType FROM Orders";
+        string selectQuery = "SELECT eqModel, EqType, Request_ID FROM Orders";
 
         try{
             using(MySqlConnection connection = new MySqlConnection(connectionString)){
@@ -33,7 +79,8 @@ public partial class Orders : Window
                         while (reader.Read()){
                             string eqModel = reader.GetString("EqModel");
                             string eqType = reader.GetString("EqType");
-                            orders.Items.Add($" {eqType} - {eqModel} ");
+                            int Request_ID = reader.GetInt32("Request_ID");
+                            orders.Items.Add($" {Request_ID} - {eqType} - {eqModel} ");
                         }
                     }
                 }
@@ -68,21 +115,23 @@ public partial class Orders : Window
                 Console.WriteLine("Ошибка: ожидаемая строка формата 'Тип - Модель', но получена: " + selectedOrder);
                 return;
             }
+            if(!int.TryParse(parts[0].Trim(), out int Request_ID)){
+                Console.WriteLine("Не удалось преобразовать");
+            }
+            string eqType = parts[1].Trim();
+            string eqModel = parts[2].Trim();
 
-            string eqType = parts[0].Trim();
-            string eqModel = parts[1].Trim();
-
-            LoadOrderDetailsFromDatabase(eqType, eqModel);
+            LoadOrderDetailsFromDatabase(eqType, eqModel, Request_ID);
         }
     }
 
-    public void LoadOrderDetailsFromDatabase(string eqType, string eqModel)
+    public void LoadOrderDetailsFromDatabase(string eqType, string eqModel, int Request_ID)
     {
         string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max;";
         string selectQuery = @"SELECT o.ProblemDesc, o.StartDate, o.Completion_Date, u.FIO 
                             FROM Orders o 
                             JOIN Users u ON o.Client_ID = u.User_ID 
-                            WHERE o.EqType = @EqType AND o.EqModel = @EqModel";
+                            WHERE o.EqType = @EqType AND o.Request_ID = @Request_ID AND o.EqModel = @EqModel";
         
         try{
             using (var connection = new MySqlConnection(connectionString))
@@ -91,6 +140,7 @@ public partial class Orders : Window
                 {
                     command.Parameters.AddWithValue("@EqType", eqType);
                     command.Parameters.AddWithValue("@EqModel", eqModel);
+                    command.Parameters.AddWithValue("@Request_ID", Request_ID);
 
                     connection.Open();
 

@@ -9,6 +9,7 @@ using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using MySql.Data.MySqlClient;
+using MsBox.Avalonia;
 namespace MyApp;
 
 
@@ -32,36 +33,41 @@ public partial class OrderPreview : Window
             Info_4.Text = "Пользователь: "+userName;
             Info_5.Text = "Дата начала работ: "+startDate;
             Info_6.Text = "Дата окончания работ: "+completionData;
-            Delete.Content = " 🧺 ";
+            Delete.Content = "Удалить🧺";
         }else{
             Info.Text = "No orders!"; 
         }
     }
-    private void DeleteOrder(object sender, RoutedEventArgs e)
+    private async void  DeleteOrder(object sender, RoutedEventArgs e)
     {
-        string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max;";
-        string deleteQuery = "DELETE FROM Orders WHERE EqType = @EqType AND EqModel = @EqModel";
+        var box = MessageBoxManager.GetMessageBoxStandard("Подтверждение", "Хотите удалить?", MsBox.Avalonia.Enums.ButtonEnum.YesNo);
+        var res = await box.ShowWindowAsync();
+        if(res == MsBox.Avalonia.Enums.ButtonResult.Yes){
+            string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max;";
+            string deleteQuery = "DELETE FROM Orders WHERE EqType = @EqType AND EqModel = @EqModel";
 
-        try
-        {
-            using (var connection = new MySqlConnection(connectionString))
+            try
             {
-                using (var command = new MySqlCommand(deleteQuery, connection))
+                using (var connection = new MySqlConnection(connectionString))
                 {
-                    command.Parameters.AddWithValue("@EqType", _selectedOrder);
-                    command.Parameters.AddWithValue("@EqModel", _eqModel);
+                    using (var command = new MySqlCommand(deleteQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@EqType", _selectedOrder);
+                        command.Parameters.AddWithValue("@EqModel", _eqModel);
 
-                    connection.Open();
-                    int affectedRows = command.ExecuteNonQuery();
-                    
-                    //Добавить предупреждение о удалдении
-                    this.Close();
+                        connection.Open();
+                        int affectedRows = command.ExecuteNonQuery();
+
+                        this.Close();
+                    }
                 }
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error deleting order: " + ex.Message);
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error deleting order: " + ex.Message);
+            }
+        }else{
+            this.Close();
         }
     }
 }

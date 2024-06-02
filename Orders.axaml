@@ -7,16 +7,20 @@
         Title="Orders">
         <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="15">
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" >
+                <TextBox Name="Search_text" Watermark="Введите номер заказа"/>
+                <Button Name="Button_search" Content="Найти" Click="Search_func" Background="AliceBlue"/>
+            </StackPanel>
             <TextBlock Name="Orders_text" Text="Доступные заказы:" FontWeight="Bold"/>
             <ListBox x:Name="orders" SelectionChanged="ListBox_SelectionChanged">
             </ListBox>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Button Content="Create new order" Click="createOrderButton" Margin="0,100" Background="AliceBlue"/>
+            <Button Name="Update" Content="Update" Click="Updateclick" Margin="10"></Button>
         </StackPanel>
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" >
-            <Button Name="Back" Content="Back" VerticalAlignment="Center" Margin="15,40,0,0" Background="BlanchedAlmond" Click="back" ></Button>
-            <Button Name="Update" Content="Update" Click="Updateclick" Margin="15,40,0,0"></Button>
+            <Button Name="Back" Content="Back" VerticalAlignment="Center" Margin="15" Background="BlanchedAlmond" Click="back" ></Button>
         </StackPanel>
         </Grid> 
 </Window>

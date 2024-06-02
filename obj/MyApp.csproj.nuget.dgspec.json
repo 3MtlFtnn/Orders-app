@@ -1,28 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\MyApp.csproj": {}
+    "/Users/maxim/Documents/Avalonia/Orders-app/MyApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\MyApp.csproj": {
+    "/Users/maxim/Documents/Avalonia/Orders-app/MyApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\MyApp.csproj",
+        "projectUniqueName": "/Users/maxim/Documents/Avalonia/Orders-app/MyApp.csproj",
         "projectName": "MyApp",
-        "projectPath": "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\MyApp.csproj",
-        "packagesPath": "C:\\Users\\Maxim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\obj\\",
+        "projectPath": "/Users/maxim/Documents/Avalonia/Orders-app/MyApp.csproj",
+        "packagesPath": "/Users/maxim/.nuget/packages/",
+        "outputPath": "/Users/maxim/Documents/Avalonia/Orders-app/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Maxim\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/maxim/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\Maxim\\AppData\\Roaming\\Cosmos User Kit\\packages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -91,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
