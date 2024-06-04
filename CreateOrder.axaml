@@ -16,6 +16,12 @@
             <ComboBoxItem>Роутер</ComboBoxItem>
             <ComboBoxItem>Сканер</ComboBoxItem>
         </ComboBox>
+        <TextBlock Text="Мастер"/>
+        <ComboBox x:Name="MasterComboBox" Width="200" SelectionChanged="Master_SelectionChanged" MaxDropDownHeight="100">
+            <ComboBoxItem>Вася</ComboBoxItem>
+            <ComboBoxItem>Антон</ComboBoxItem>
+            <ComboBoxItem>Наталья</ComboBoxItem>
+        </ComboBox>
         <TextBlock Text="Модель устройства:"/>
         <TextBox x:Name="txtEqModel" Width="200"/>
         <TextBlock Text="Описание проблемы:"/>
