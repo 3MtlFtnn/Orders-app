@@ -4,8 +4,10 @@ using Avalonia.Interactivity;
 using Avalonia.Animation;
 using MySql.Data.MySqlClient;
 using System;
+using MyApp.Variables;
+
 namespace MyApp;
-using System.Threading;
+
 public partial class MainWindow : Window
 {
     public MainWindow()
@@ -19,82 +21,83 @@ public partial class MainWindow : Window
         secwin.Show();
         this.Close();
     }
-private void CheckConnection_click(object sender, RoutedEventArgs e)
-{
-    string Login = Login_textbox.Text;
-    string Password = Password_textbox.Text;
-    string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max;";
-    string selectQuery = "SELECT User_ID FROM Users WHERE Login = @login AND Password = @password";
-
-    try
+    private void CheckConnection_click(object sender, RoutedEventArgs e)
     {
-        using (MySqlConnection connection = new MySqlConnection(connectionString))
+        string Login = Login_textbox.Text;
+        string Password = Password_textbox.Text;
+        string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max;";
+        string selectQuery = "SELECT User_ID FROM Users WHERE Login = @login AND Password = @password";
+
+        try
         {
-            connection.Open();
-
-            Test.Foreground = Brushes.Green;
-
-            using (MySqlCommand command = new MySqlCommand(selectQuery, connection))
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                command.Parameters.AddWithValue("@login", Login);
-                command.Parameters.AddWithValue("@password", Password);
+                connection.Open();
 
-                using (MySqlDataReader reader = command.ExecuteReader())
+                Test.Foreground = Brushes.Green;
+
+                using (MySqlCommand command = new MySqlCommand(selectQuery, connection))
                 {
-                    if (reader.Read())
+                    command.Parameters.AddWithValue("@login", Login);
+                    command.Parameters.AddWithValue("@password", Password);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        
-                        Test.Foreground = Brushes.Green;
-                        statusLabel.Text = "Connected";
+                        if (reader.Read())
+                        {
+                            Variables.Variables.Login_global = reader.GetInt32("User_ID").ToString();
+                            Test.Foreground = Brushes.Green;
+                            statusLabel.Text = "Connected";
+                        }
                     }
                 }
             }
         }
-    }
-    catch (Exception ex)
-    {
-        Test.Foreground = Brushes.Red;
-        statusLabel.Text = "No connect: " + ex.Message;
-    }
-}
-private void Login_click(object sender, RoutedEventArgs e){
-    string Login = Login_textbox.Text;
-    string Password = Password_textbox.Text;
-    string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max;";
-    string selectQuery = "SELECT User_ID FROM Users WHERE Login = @login AND Password = @password";
-
-    try
-    {
-        using (MySqlConnection connection = new MySqlConnection(connectionString))
+        catch (Exception ex)
         {
-            connection.Open();
+            Test.Foreground = Brushes.Red;
+            statusLabel.Text = "No connect: " + ex.Message;
+        }
+    }
+    private void Login_click(object sender, RoutedEventArgs e){
+        string Login = Login_textbox.Text;
+        string Password = Password_textbox.Text;
+        string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max;";
+        string selectQuery = "SELECT User_ID FROM Users WHERE Login = @login AND Password = @password";
 
-            Test.Foreground = Brushes.Green;
-
-            using (MySqlCommand command = new MySqlCommand(selectQuery, connection))
+        try
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                command.Parameters.AddWithValue("@login", Login);
-                command.Parameters.AddWithValue("@password", Password);
+                connection.Open();
 
-                using (MySqlDataReader reader = command.ExecuteReader())
+                Test.Foreground = Brushes.Green;
+
+                using (MySqlCommand command = new MySqlCommand(selectQuery, connection))
                 {
-                    if (reader.Read())
+                    command.Parameters.AddWithValue("@login", Login);
+                    command.Parameters.AddWithValue("@password", Password);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        Window newWindow = new Orders(Login);
-                        newWindow.Show();
-                        this.Close();
-                    }else{
-                        Test.Foreground = Brushes.Red;
-                        statusLabel.Text = "Password incorrect";
+                        if (reader.Read())
+                        {
+                            Variables.Variables.Login_global = "qw";
+                            Window newWindow = new Orders(Login);
+                            newWindow.Show();
+                            this.Close();
+                        }else{
+                            Test.Foreground = Brushes.Red;
+                            statusLabel.Text = "Password incorrect";
+                        }
                     }
                 }
             }
         }
+        catch (Exception ex)
+        {
+            Test.Foreground = Brushes.Red;
+            statusLabel.Text = "No connect: " + ex.Message;
+        }
     }
-    catch (Exception ex)
-    {
-        Test.Foreground = Brushes.Red;
-        statusLabel.Text = "No connect: " + ex.Message;
-    }
-}
 }

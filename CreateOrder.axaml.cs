@@ -4,7 +4,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using MySql.Data.MySqlClient;
-
+using MyApp.Variables;
 namespace MyApp;
 
 public partial class CreateOrder : Window
@@ -25,7 +25,7 @@ public partial class CreateOrder : Window
     public void Master_SelectionChanged(object sender, SelectionChangedEventArgs e){
         var combobox = sender as ComboBox;
         if(combobox?.SelectedItem!=null){
-            Type_device = (combobox.SelectedItem as ComboBoxItem).Content.ToString();
+            Master_Selected = (combobox.SelectedItem as ComboBoxItem).Content.ToString();
         }
     }
     public void SaveOrderButton_Click(object sender, RoutedEventArgs e){
@@ -43,7 +43,7 @@ public partial class CreateOrder : Window
                     command.Parameters.AddWithValue("@Completion_Date", "2000-12-12");
                     command.Parameters.AddWithValue("@eqModel", eqModel);
                     command.Parameters.AddWithValue("@Type_device", Type_device);
-                    command.Parameters.AddWithValue("@Client_ID", "1");
+                    command.Parameters.AddWithValue("@Client_ID", Variables.Variables.Login_global);
                 
                     connection.Open();
                     command.ExecuteNonQuery();

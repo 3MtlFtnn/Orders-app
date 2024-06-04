@@ -6,7 +6,7 @@
         x:Class="MyApp.Orders"
         Title="Orders">
         <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="15">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="25">
             <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" >
                 <TextBox Name="Search_text" Watermark="Введите номер заказа"/>
                 <Button Name="Update" Content="Update" Click="Updateclick" Margin="10"></Button>
@@ -15,9 +15,7 @@
             <TextBlock Name="Orders_text" Text="Доступные заказы:" FontWeight="Bold"/>
             <ListBox x:Name="orders" SelectionChanged="ListBox_SelectionChanged">
             </ListBox>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <Button Content="Create new order" Click="createOrderButton" Margin="0,100" Background="AliceBlue"/>
+            <Button Content="Create new order" Click="createOrderButton" Margin="5" Background="AliceBlue"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" >
             <Button Name="Back" Content="Back" VerticalAlignment="Center" Margin="15" Background="BlanchedAlmond" Click="back" ></Button>
