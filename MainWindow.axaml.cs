@@ -45,7 +45,7 @@ public partial class MainWindow : Window
                     {
                         if (reader.Read())
                         {
-                            Variables.Variables.Login_global = reader.GetInt32("User_ID").ToString();
+          
                             Test.Foreground = Brushes.Green;
                             statusLabel.Text = "Connected";
                         }
@@ -82,7 +82,7 @@ public partial class MainWindow : Window
                     {
                         if (reader.Read())
                         {
-                            Variables.Variables.Login_global = "qw";
+                            Variables.Variables.Login_global = reader.GetInt32("User_ID").ToString();
                             Window newWindow = new Orders(Login);
                             newWindow.Show();
                             this.Close();
