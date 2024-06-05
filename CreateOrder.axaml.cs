@@ -59,7 +59,8 @@ public partial class CreateOrder : Window
         string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max";
         string eqModel = txtEqModel.Text;
         string problem = txtProblemDesc.Text;
-        string insertQuery = "INSERT INTO Orders (Master_ID, Status, Client_ID, EqModel, EqType, ProblemDesc, StartDate, Completion_Date) VALUES (@Master_ID, @Status, @Client_ID, @eqModel, @Type_device, @problem, @StartDate, @Completion_Date)";
+        DateTime today = DateTime.Today;
+        string insertQuery = "INSERT INTO Orders (Master_ID, Status, Client_ID, EqModel, EqType, ProblemDesc, StartDate) VALUES (@Master_ID, @Status, @Client_ID, @eqModel, @Type_device, @problem, @StartDate)";
         try
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -69,8 +70,7 @@ public partial class CreateOrder : Window
                     command.Parameters.AddWithValue("@problem", problem);
                     command.Parameters.AddWithValue("@Master_ID", Master_Selected_id); 
                     command.Parameters.AddWithValue("@Status", "pococococ");
-                    command.Parameters.AddWithValue("@StartDate", "2000-12-12");
-                    command.Parameters.AddWithValue("@Completion_Date", "2000-12-12");
+                    command.Parameters.AddWithValue("@StartDate", today);
                     command.Parameters.AddWithValue("@eqModel", eqModel);
                     command.Parameters.AddWithValue("@Type_device", Type_device);
                     command.Parameters.AddWithValue("@Client_ID", Variables.Variables.Login_global);

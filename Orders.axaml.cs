@@ -51,7 +51,7 @@ public partial class Orders : Window
                             string startDate = reader.GetDateTime("StartDate").ToString("yyyy-MM-dd");
                             string completionDate = reader.GetDateTime("Completion_Date").ToString("yyyy-MM-dd");
                             string userName = reader.GetString("FIO");
-                            Window windows_preview = new OrderPreview(eqType,  eqModel,  problemDesc, userName, startDate,  completionDate, _Login);
+                            Window windows_preview = new OrderPreview(eqType,  eqModel,  problemDesc, userName, startDate,  completionDate, _Login, requestId);
                             windows_preview.Show();                        
                         }
                         else
@@ -157,7 +157,7 @@ public partial class Orders : Window
 
                             if (eqType != null && eqModel != null && problemDesc != null && userName != null && startDate != null && completionDate != null)
                             {
-                                OrderPreview infoWindow = new OrderPreview(eqType, eqModel, problemDesc, userName, startDate, completionDate, _Login);
+                                OrderPreview infoWindow = new OrderPreview(eqType, eqModel, problemDesc, userName, startDate, completionDate, _Login, Request_ID);
                                 infoWindow.SizeToContent = SizeToContent.WidthAndHeight;
                                 infoWindow.ShowDialog(this);
                      
