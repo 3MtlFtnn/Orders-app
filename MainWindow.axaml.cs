@@ -126,9 +126,7 @@ public partial class MainWindow : Window
                         {                
                             Variables.Variables.Type_global = reader.GetString("Type");
                             Console.WriteLine(Variables.Variables.Type_global);
-                            Window newWindow = new Orders(Login);
-                            newWindow.Show();
-                            this.Close();
+
                         }else{
                             Test.Foreground = Brushes.Red;
                             statusLabel.Text = "Password incorrect";
