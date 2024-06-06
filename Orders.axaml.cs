@@ -16,6 +16,7 @@ public partial class Orders : Window
 {
     private string _Login;
     private string count_orders;
+    private string eqType;
     public Orders(string user)
     {
         _Login = user;
@@ -24,6 +25,13 @@ public partial class Orders : Window
             Orders_text.Text = "Error: orders not found";
         }else{
             LoadOrders();
+            Count_orders();
+            Count_orders_Eq("Телефон");
+            Count_orders_Eq("Принтер");
+            Count_orders_Eq("Шредер");
+            Count_orders_Eq("Компьютер");
+            Count_orders_Eq("Роутер");
+            Count_orders_Eq("Сканер");
         }
     }
 
@@ -97,7 +105,7 @@ public partial class Orders : Window
                     if (result != null && result != DBNull.Value)
                     {
                         count_orders = result.ToString();
-                        Statistic.Text = "Доступные заказы: "+count_orders;
+                        Statistic.Text = "Доступные заказы: "+count_orders+"; ";
                     }
                     else
                     {
@@ -111,10 +119,10 @@ public partial class Orders : Window
             Console.WriteLine("Error: " + ex.Message);
         }
     }
-    public void Count_orders_Phone()
+    public void Count_orders_Eq(string eqType)
     {
         string connectionString = "Server=192.168.192.155;Port=3306;Database=OrdersApp;Uid=root;Pwd=220819998008Max;";
-        string selectQuery = "SELECT COUNT(*) FROM orders WHERE EqType = 'Телефон';";
+        string selectQuery = $"SELECT COUNT(*) FROM orders WHERE EqType = '{eqType}';";
         try
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -126,7 +134,7 @@ public partial class Orders : Window
                     if (result != null && result != DBNull.Value)
                     {
                         string count_orders_Eq = result.ToString();
-                        Statistic.Text = "Телефоны: " + count_orders;
+                        Statistic.Text +=  $"{eqType}: {count_orders_Eq}; ";
                     }
                     else
                     {
@@ -151,12 +159,15 @@ public partial class Orders : Window
                     using (MySqlDataReader reader = command.ExecuteReader()){
                         while (reader.Read()){
                             string eqModel = reader.GetString("EqModel");
-                            string eqType = reader.GetString("EqType");
+                            eqType = reader.GetString("EqType");
                             int Request_ID = reader.GetInt32("Request_ID");
-                            Count_orders();
-                            Count_orders_Phone();
+                           // Count_orders_Eq("Роутер");
+                            //Count_orders_Eq("Принтер");
                             orders.Items.Add($" {Request_ID} - {eqType} - {eqModel} ");
                         }
+                        //Count_orders_Eq("Роутер");
+                        //Count_orders_Eq("Принтер");
+
                     }
                 }
             }
@@ -166,6 +177,13 @@ public partial class Orders : Window
     }
     public void Updateclick(object sender, RoutedEventArgs e){
         orders.Items.Clear();
+        Count_orders();
+        Count_orders_Eq("Телефон");
+        Count_orders_Eq("Принтер");
+        Count_orders_Eq("Шредер");
+        Count_orders_Eq("Компьютер");
+        Count_orders_Eq("Роутер");
+        Count_orders_Eq("Сканер");
         LoadOrders();
     }
 
@@ -242,6 +260,7 @@ public partial class Orders : Window
                                 Console.WriteLine("Одно из полей равно null.");
                             }
                         }
+
                     }
                 }
             }

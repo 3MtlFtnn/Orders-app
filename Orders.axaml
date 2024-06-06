@@ -14,7 +14,7 @@
                 </StackPanel>
 				<StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" >
                     <TextBlock Name="Orders_text" Text="Доступные заказы:" FontWeight="Bold"/>
-					<TextBlock Name="Statistic" Text="Пусто" Padding="2"  />
+					<TextBlock Name="Statistic" Padding="2"  />
 				</StackPanel>
                 <ListBox x:Name="orders" SelectionChanged="ListBox_SelectionChanged">
                 </ListBox>

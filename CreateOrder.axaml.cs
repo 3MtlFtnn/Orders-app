@@ -31,6 +31,7 @@ public partial class CreateOrder : Window
 
     public async void Master_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
+        
         var combobox = sender as ComboBox;
         string Master_Selected = null;
         Dictionary<string, int> myDictionary = new Dictionary<string, int>();
