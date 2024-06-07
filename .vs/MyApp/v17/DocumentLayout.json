@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D936823B-A95F-48A1-BD15-7919C01148EB}|MyApp.csproj|c:\\users\\maxim\\documents\\programming\\orders-app\\orderpreview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D936823B-A95F-48A1-BD15-7919C01148EB}|MyApp.csproj|solutionrelative:orderpreview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D936823B-A95F-48A1-BD15-7919C01148EB}|MyApp.csproj|c:\\users\\maxim\\documents\\programming\\orders-app\\createorder.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D936823B-A95F-48A1-BD15-7919C01148EB}|MyApp.csproj|solutionrelative:createorder.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D936823B-A95F-48A1-BD15-7919C01148EB}|MyApp.csproj|c:\\users\\maxim\\documents\\programming\\orders-app\\orders.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D936823B-A95F-48A1-BD15-7919C01148EB}|MyApp.csproj|solutionrelative:orders.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D936823B-A95F-48A1-BD15-7919C01148EB}|MyApp.csproj|c:\\users\\maxim\\documents\\programming\\orders-app\\createorder.axaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{D936823B-A95F-48A1-BD15-7919C01148EB}|MyApp.csproj|solutionrelative:createorder.axaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D936823B-A95F-48A1-BD15-7919C01148EB}|MyApp.csproj|c:\\users\\maxim\\documents\\programming\\orders-app\\myapp.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D936823B-A95F-48A1-BD15-7919C01148EB}|MyApp.csproj|solutionrelative:myapp.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D936823B-A95F-48A1-BD15-7919C01148EB}|MyApp.csproj|c:\\users\\maxim\\documents\\programming\\orders-app\\orders.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D936823B-A95F-48A1-BD15-7919C01148EB}|MyApp.csproj|solutionrelative:orders.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D936823B-A95F-48A1-BD15-7919C01148EB}|MyApp.csproj|c:\\users\\maxim\\documents\\programming\\orders-app\\orders.axaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -34,6 +42,32 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MyApp.axaml.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\MyApp.axaml.cs",
+              "RelativeDocumentMoniker": "MyApp.axaml.cs",
+              "ToolTip": "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\MyApp.axaml.cs",
+              "RelativeToolTip": "MyApp.axaml.cs",
+              "ViewState": "AQIAAFEAAAAAAAAAAAA3wGEAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T15:28:20.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderPreview.axaml.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\OrderPreview.axaml.cs",
+              "RelativeDocumentMoniker": "OrderPreview.axaml.cs",
+              "ToolTip": "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\OrderPreview.axaml.cs",
+              "RelativeToolTip": "OrderPreview.axaml.cs",
+              "ViewState": "AQIAALUAAAAAAAAAAAAYwM4AAABkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T15:02:46.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "CreateOrder.axaml",
               "DocumentMoniker": "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\CreateOrder.axaml",
@@ -47,20 +81,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CreateOrder.axaml.cs",
               "DocumentMoniker": "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\CreateOrder.axaml.cs",
               "RelativeDocumentMoniker": "CreateOrder.axaml.cs",
               "ToolTip": "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\CreateOrder.axaml.cs",
               "RelativeToolTip": "CreateOrder.axaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAIAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAA4wCgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-06T13:39:55.352Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Orders.axaml",
               "DocumentMoniker": "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\Orders.axaml",
               "RelativeDocumentMoniker": "Orders.axaml",
@@ -68,12 +102,11 @@
               "RelativeToolTip": "Orders.axaml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-06-06T11:48:18.177Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T11:48:18.177Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Orders.axaml.cs",
               "DocumentMoniker": "C:\\Users\\Maxim\\Documents\\Programming\\Orders-app\\Orders.axaml.cs",
               "RelativeDocumentMoniker": "Orders.axaml.cs",
@@ -81,8 +114,7 @@
               "RelativeToolTip": "Orders.axaml.cs",
               "ViewState": "AQIAAK0AAAAAAAAAAAAUwLkAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T09:29:05.732Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T09:29:05.732Z"
             }
           ]
         }
